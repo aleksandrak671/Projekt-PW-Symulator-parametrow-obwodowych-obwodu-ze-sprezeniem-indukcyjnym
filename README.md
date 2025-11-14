@@ -1,0 +1,1 @@
+# Projekt-PW-Symulator-parametr-w-obwodowych-obwodu-ze-sprz-eniem-indukcyjnym
