@@ -1,7 +1,5 @@
 # Symulator obwodu RLC ze sprzężeniem indukcyjnym
 
-**Projekt zaliczeniowy z przedmiotu Metody Numeryczne.**
-
 ## O projekcie
 
 Celem projektu było stworzenie symulatora obwodu elektrycznego RLC z uwzględnieniem sprzężenia transformatorowego w stanie nieustalonym. Projekt łączy zagadnienia inżynierskie (teoria obwodów) z implementacją algorytmów numerycznych w środowisku MATLAB.
@@ -50,4 +48,5 @@ Poprawność działania symulatora została zweryfikowana poprzez:
 * Analizę stabilności rozwiązań dla różnych kroków czasowych.
 
 ---
-*Projekt wykonany na zaliczenie przedmiotu Metody Numeryczne.*
+*Projekt wykonany na zaliczenie przedmiotu Metody Numeryczne.
+PW 2025/2026*
