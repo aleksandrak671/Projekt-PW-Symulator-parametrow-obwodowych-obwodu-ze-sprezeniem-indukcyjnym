@@ -1,7 +1,6 @@
 # Symulator obwodu RLC ze sprzężeniem indukcyjnym
 
 **Projekt zaliczeniowy z przedmiotu Metody Numeryczne.**
-Autorka: **Aleksandra Konopelska**
 
 ## O projekcie
 
