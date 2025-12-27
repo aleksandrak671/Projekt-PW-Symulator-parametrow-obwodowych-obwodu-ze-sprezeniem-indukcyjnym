@@ -1,52 +1,54 @@
-# Symulator obwodu RLC ze sprzężeniem indukcyjnym
+# Inductively Coupled RLC Circuit Simulator
 
-## O projekcie
+## Project Overview
 
-Celem projektu było stworzenie symulatora obwodu elektrycznego RLC z uwzględnieniem sprzężenia transformatorowego w stanie nieustalonym. Projekt łączy zagadnienia inżynierskie (teoria obwodów) z implementacją algorytmów numerycznych w środowisku MATLAB.
+The objective of this project was to develop a simulator for an RLC electrical circuit with transformer coupling in the transient state. The project bridges the gap between engineering theory (circuit analysis) and the implementation of numerical algorithms in MATLAB.
 
-Symulator analizuje zarówno wariant **liniowy** (stała indukcyjność wzajemna M), jak i **nieliniowy** (indukcyjność M zależna od napięcia, wyznaczana z charakterystyki pomiarowej).
+The simulator analyzes two operational modes:
+* **Linear:** Assumes constant mutual inductance ($M$).
+* **Nonlinear:** Mutual inductance $M(u)$ is voltage-dependent, determined based on measurement characteristics.
 
-## Zastosowane metody numeryczne
+## Implemented Numerical Methods
 
-Projekt został podzielony na 4 główne części, w których zaimplementowano i przetestowano następujące metody:
+The project is divided into four main parts, where the following methods were implemented and tested:
 
-### 1. Rozwiązywanie równań różniczkowych (ODE)
-* **Metoda Eulera** (rzędu I)
-* **Ulepszona metoda Eulera** (metoda Heuna, rzędu II) – wybrana jako główny solver ze względu na lepszą stabilność.
+### 1. Differential Equation Solvers (ODEs)
+* **Euler's Method** (1st order)
+* **Improved Euler's Method** (Heun's method, 2nd order) – selected as the primary solver due to better stability.
 
-### 2. Interpolacja i aproksymacja (Nieliniowość)
-Analiza wpływu doboru metody przybliżania charakterystyki M(u) na stabilność symulacji (badanie efektu Rungego):
-* Interpolacja wielomianowa (metoda Newtona)
-* Interpolacja funkcjami sklejanymi (Spline 3. stopnia)
-* Aproksymacja wielomianowa (stopnia 3 i 5)
+### 2. Interpolation and Approximation (Nonlinearity)
+Analysis of how the method chosen to approximate the $M(u)$ characteristic affects simulation stability (study of the Runge phenomenon):
+* Polynomial Interpolation (Newton form)
+* Spline Interpolation (Cubic splines)
+* Polynomial Approximation (degree 3 and 5)
 
-### 3. Całkowanie numeryczne
-Obliczanie energii wydzielanej w układzie:
-* Metoda złożonych prostokątów
-* Metoda złożonych parabol (wzór Simpsona)
+### 3. Numerical Integration
+Calculation of the energy dissipated in the system:
+* Composite Rectangle Rule
+* Composite Simpson's Rule (Parabolic rule)
 
-### 4. Wyznaczanie miejsc zerowych (Optymalizacja)
-Poszukiwanie częstotliwości wymuszenia dla zadanej mocy P:
-* Metoda bisekcji
-* Metoda siecznych
-* Metoda Quasi-Newtona (z numerycznym wyznaczaniem pochodnej i doborem kroku różniczkowania df)
+### 4. Root Finding (Optimization)
+Searching for the forcing frequency required for a target power output $P$:
+* Bisection Method
+* Secant Method
+* Quasi-Newton Method (with numerical derivative calculation and dynamic step selection $df$)
 
-## Struktura repozytorium
+## Repository Structure
 
-Kod został podzielony na katalogi odpowiadające kolejnym etapom projektu:
+The code is organized into directories corresponding to the project stages:
 
-* **część 1/** – Symulacja obwodu liniowego. Porównanie metod Eulera.
-* **część 2/** – Symulacja obwodu nieliniowego. Implementacja metod interpolacji i aproksymacji.
-* **część 3/** – Obliczanie energii (całkowanie) dla różnych kroków czasowych.
-* **część 4/** – Wyznaczanie parametrów sterujących (częstotliwości) metodami iteracyjnymi.
+* `part 1/` – Linear circuit simulation. Comparison of Euler methods.
+* `part 2/` – Nonlinear circuit simulation. Implementation of interpolation and approximation methods.
+* `part 3/` – Energy calculation (integration) for different time steps.
+* `part 4/` – Determination of control parameters (frequency) using iterative methods.
 
-## Weryfikacja
+## Verification
 
-Poprawność działania symulatora została zweryfikowana poprzez:
-* Porównanie wyników z rozwiązaniem analitycznym dla uproszczonego modelu.
-* Porównanie przebiegów z zewnętrznym oprogramowaniem symulacyjnym (Qucs).
-* Analizę stabilności rozwiązań dla różnych kroków czasowych.
+The correctness of the simulator was verified by:
+* Comparing results with the analytical solution for a simplified model.
+* Comparing waveforms with external simulation software (Qucs).
+* Analyzing the stability of solutions for various time steps.
 
 ---
-*Projekt wykonany na zaliczenie przedmiotu Metody Numeryczne.
-PW 2025/2026*
+*Project completed for the Numerical Methods course.*
+*Warsaw University of Technology (PW) 2025/2026*
